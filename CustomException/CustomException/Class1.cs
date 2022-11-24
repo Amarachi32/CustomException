@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomException
 {
-    public class CustomException : Exception
+    public class CustomException : ApplicationException
     {
         public CustomException()
         {
