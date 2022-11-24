@@ -1,23 +1,38 @@
-﻿using System;
+using System;
 namespace CustomException
 {
     class Program
     {
         static void Main(string[] args)
         {
+            //NameExceptio exp  = new NameExceptio();
+            string name;
             Console.WriteLine("enter your  name");
-            string name = Console.ReadLine();
-            if (string.IsNullOrEmpty(name))
+            try
             {
-                throw new CustomException(" input your Name");
+                name = Console.ReadLine();
+                if (string.IsNullOrEmpty(name))
+                {
+                    //throw exp;
+                    throw new NameException(" input your Name");
+                }
+                else
+                {
+                    Console.WriteLine("Name: " + name);
+                }
+                
             }
-            else
+            catch(NameException exp)
             {
-                Console.WriteLine("Name: " + name);
+                Console.WriteLine($"Message: {exp.Message}");
+                Console.WriteLine($"HelpLink: {exp.HelpLink}");
             }
-            Console.ReadLine();
-             
+
+            Console.WriteLine("End of the Program");
+            Console.ReadKey();
+
         }
     }
     
 }
+
